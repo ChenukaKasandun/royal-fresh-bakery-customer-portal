@@ -1,0 +1,40 @@
+.section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    color: white;
+}
+
+#home {
+    background-image: url(/images/baked-black-bean-paste-buns-wooden-plate-place-floor-that-full-black-beans.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-size: cover;
+
+
+}
+
+.navbar {
+    background-color: rgba(255, 213, 128, 0.75) /* Golden Honey */
+
+}
+
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(252, 252, 253, 0.78);
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.section1 {
+    background-image: url("/images/biscuits-with-sesame-seeds-chocolate-pieces-wooden-board.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-size: cover;
+
+}

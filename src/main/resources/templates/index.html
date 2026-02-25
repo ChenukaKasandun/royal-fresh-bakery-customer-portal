@@ -1,0 +1,74 @@
+<!-- Requesting header area from common header page -> header.html using ThymeLeaf Function-->
+
+<head th:replace="header :: headerFragment"></head>
+
+<head> <!-- link css -->
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<!-- This is a unique element in head area -->
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- Brand stays left -->
+        <a class="navbar-brand" style="font-family: 'Work Sans, sans-serif'"><b>Royal Fresh Bakery</b></a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Center only the nav items -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav fw-bold">
+                <li class="nav-item me-5">
+                    <a class="nav-link" href="/products">Our Products</a>
+                </li>
+                <li class="nav-item dropdown me-5">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Contact Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Contact No - 0112450325</a></li>
+                        <li><a class="dropdown-item" href="#">Email - royalfresh@gmail.com</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    </ul>
+                </li>
+                <li class="nav-item me-5">
+                    <a class="nav-link" href="/customerlogin">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="row mt-2">
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-body text-dark fw-bold" style="font-family:Modern Sans-Serif">
+                        <h2>Welcome to Royal Fresh Bakery..!</h2>
+                        <br>
+                        <p class="mt-2" style="text-align: justify; font-size: medium" > We are producing all types of bakery items including bread, buns and cakes.You can place orders by both
+                        visiting our place as well as through this website.Our products are popular among consumers as they are good in quality and
+                        affordable in prices.Experience the taste of our products and save your wallet!....</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7"></div>
+        </div>
+
+
+    </section>
+
+</body>
+
+
+
+</html>

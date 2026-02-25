@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Requesting header area from common header page -> header.html using ThymeLeaf Function -->
+
+<head th:replace="header :: headerFragment"></head>
+
+<!-- This is a unique element in head area -->
+<head>
+    <!-- link external css file -->
+    <link rel="stylesheet" href="/css/customeronlinereg.css">
+
+</head>
+
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row mt-2">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body2" style="background-image: url(/images/baked-black-bean-paste-buns-wooden-cutting-board.jpg)" >
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body" style="background-image:url('/images/newwww.jpg');  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);">
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tabIndividual" data-bs-toggle="pill" data-bs-target="#pills-home"
+                                    type="button" role="tab" aria-controls="pills-home" aria-selected="true"
+                                    style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);">Individual
+                                Customer</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link " id="tabShop" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false"
+                                    style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);"
+                                    onclick="customer.customer_type_id = {id : 2 , type : 'Shop'}">Shop
+                                Customer</button>
+                        </li>
+
+                    </ul>
+
+
+
+                    <!-- Tab contents -->
+                    <div class="tab-content" id="pills-tabContent">
+
+
+                        <!-- Tab contents -> Individual Customer -->
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <form onsubmit="return false " id="formIndividual">
+
+
+                                <div class="row mt-2 mb-3">
+
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="txtCustomerName_tab1" class="form-label"><b>Customer Name:<span
+                                                    class="text-danger">*</span></b></label>
+                                            <input type="text" class="form-control" id="txtCustomerName_tab1"
+                                                   placeholder="Ex: Kamal Perera"
+                                                   onkeyup="textValidator(this,'^([A-Z][a-z]{1,10}[ ])+([a-z]{2}[ ])?([A-Z][a-z]{1,10})$', 'customer', 'name')">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Looks not good!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="txtMobileNo_tab1" class="form-label"><b>Mobile Number:<span
+                                                    class="text-danger">*</span></b></label>
+                                            <input type="text" class="form-control" id="txtMobileNo_tab1"
+                                                   placeholder="Enter your mobile Number"
+                                                   onkeyup="textValidator(this,'^([0][7][01245678][0-9]{7})$','customer','mobileno')"
+                                                   data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                                   title="Please Enter a contactable mobile no..!">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Looks not good!
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class=" row mt-2 mb-3">
+
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="txtEmailAddress_tab1" class="form-label"><b>Email address:</b></label>
+                                            <input type="email" class="form-control" id="txtEmailAddress_tab1"
+                                                   onkeyup="textValidator(this,'[a-z|A-Z|0-9]{6,20}[@][a-z]{3,7}[.][a-z]{2,3}$','customer','email');"
+                                                   placeholder="Enter a valid email address" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                   data-bs-custom-class="custom-tooltip" title="Please eter a valid email address..!">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Looks not good!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="txtaddress_tab1" class="form-label"><b> Address:</b></label>
+                                            <input type="text" class="form-control" id="txtaddress_tab1"
+                                                   placeholder="Enter a valid  address" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                   data-bs-custom-class="custom-tooltip" title="Please eter a valid address..!"
+                                                   onchange="customer.address = this.value;">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row mt-2">
+                                    <div class="text-center" id="buttonContainer1">
+
+                                        <button type="submit" class="btn btn-danger me-2" id="buttonSubmit1"
+                                                style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);" onclick="buttonCustomerSubmit1();"><i
+                                                class="fa-solid fa-plus"></i>Register</button>
+
+                                    </div>
+
+
+                                </div>
+                            </form>
+
+                        </div>
+
+
+
+                        <!-- Tab contents -> Shop Customer -->
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="container">
+
+                                        <div class="row">
+
+                                            <div class="col-6">
+<!--                                                Shop Customer registration Form Starts-->
+                                                <form onsubmit="return false " id="formShop">
+
+                                                    <div class="row mt-2 mb-3">
+
+                                                        <div class="col">
+                                                            <div class="mb-3">
+                                                                <label for="txtCustomerName_tab2" class="form-label"><b>Customer Name:<span
+                                                                        class="text-danger">*</span></b></label>
+                                                                <input type="text" class="form-control" id="txtCustomerName_tab2"
+                                                                       placeholder="Ex: Kamal Perera"
+                                                                       onkeyup="textValidator(this,'^([A-Z][a-z]{1,10}[ ])+([a-z]{2}[ ])?([A-Z][a-z]{1,10})$', 'customer', 'name')">
+                                                                <div class="valid-feedback">
+                                                                    Looks good!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    Looks not good!
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="mb-3">
+                                                                <label for="txtMobileNo_tab2" class="form-label"><b>Mobile Number:<span
+                                                                        class="text-danger">*</span></b></label>
+                                                                <input type="text" class="form-control" id="txtMobileNo_tab2"
+                                                                       placeholder="Enter your mobile Number"
+                                                                       onkeyup="textValidator(this,'^([0][7][01245678][0-9]{7})$','customer','mobileno')"
+                                                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                       data-bs-custom-class="custom-tooltip"
+                                                                       title="Please Enter a contactable mobile no..!">
+                                                                <div class="valid-feedback">
+                                                                    Looks good!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    Looks not good!
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row mt-2 mb-3">
+
+                                                        <div class="col-6">
+                                                            <div class="mb-3">
+                                                                <label for="txtEmailAddress_tab2" class="form-label"><b>Email address:</b></label>
+                                                                <input type="email" class="form-control" id="txtEmailAddress_tab2"
+                                                                       onkeyup="textValidator(this,'[a-z|A-Z|0-9]{6,20}[@][a-z]{3,7}[.][a-z]{2,3}$','customer','email');"
+                                                                       placeholder="Enter a valid email address" data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                                                       title="Please eter a valid email address..!">
+                                                                <div class="valid-feedback">
+                                                                    Looks good!
+                                                                </div>
+                                                                <div class="invalid-feedback">
+                                                                    Looks not good!
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="mb-3">
+                                                                <label for="txtaddress_tab2" class="form-label"><b> Address:</b></label>
+                                                                <input type="text" class="form-control" id="txtaddress_tab2"
+                                                                       placeholder="Enter a valid  address" data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                                                       title="Please eter a valid address..!"
+                                                                       onchange="customer.address = this.value;">
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row mt-2 mb-3">
+
+                                                        <div class="col-6">
+                                                            <label for="selectVehicleRoute_tab2" class="form-label"><b>Vehicle Route :<span
+                                                                    class="text-danger">*</span></b></label>
+                                                            <select class="form-select" id="selectVehicleRoute_tab2"
+                                                                    onchange="dynamicElementValidator(this,'customer','vehicle_route_id');"></select>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class=" row mb-3">
+
+                                                        <label for="textNote_tab2" class="form-label fw-bold">Note :</label>
+                                                        <textarea class="form-control " id="textNote_tab2" rows="3"></textarea>
+
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+
+                                            <div class="col">
+                                                        <div class="card"
+                                                             style="background-image:url('/images/newwww.jpg');  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="  text-center fw-bold title text-light"
+                                                                         style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901); background-color: #997645" >
+                                                                        <h5>Customer Inner Form</h5>
+                                                                    </div>
+
+                                                                    <div class="row"></div>
+                                                                    <div class="row"></div>
+
+                                                                </div>
+
+                                                                <form id="customerOnlineInnerForm" >
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <label for="selectItem" class="form-label"><b>Item :<span
+                                                                                    class="text-danger">*</span></b></label>
+                                                                            <select class="form-select" id="selectItem"
+                                                                                    onchange="dynamicElementValidator2(this,'customerItem','item_id');"
+                                                                            ></select>
+                                                                        </div>
+
+                                                                        <div class="col">
+
+                                                                            <div class="mb-3">
+                                                                                <label for="txtItemQuantity" class="form-label"><b>Item Quantity:<span
+                                                                                        class="text-danger">*</span></b></label>
+                                                                                <input type="text" class="form-control" id="txtItemQuantity"
+                                                                                       onkeyup="textValidator(this,'^([0-9]{1,100})$','customerItem','qty')"
+                                                                                       placeholder="Ex: Enter Item Quantity">
+                                                                                <div class="valid-feedback">
+                                                                                    Looks good!
+                                                                                </div>
+                                                                                <div class="invalid-feedback">
+                                                                                    Looks not good!
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="row">
+
+                                                                        <div class="col-6">
+                                                                            <label for="selectSession" class="form-label"><b>Session :<span
+                                                                                    class="text-danger">*</span></b></label>
+                                                                            <select class="form-select" id="selectSession"
+                                                                                    onchange="dynamicElementValidator2(this,'customerItem','production_session_id');"></select>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </form>
+
+
+                                                                    <div class="row mt-2">
+
+                                                                        <div class="col-3 text-start">
+                                                                        </div>
+                                                                        <div class="col-9 text-end">
+                                                                            <button type="reset" class="btn btn-info"
+                                                                                    style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);">Clear</button>
+
+                                                                            <button type="submit" class="btn btn-success"
+                                                                                    style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);"
+                                                                                    onclick="buttonInnerFormSubmit();"
+                                                                            ><i class="fa-solid fa-plus"></i>Add</button>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row mt-2 mb-3" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);background-color: #997645">
+                                                                        <div class="text-center fw-bold title text-light" >
+                                                                            <h5>Customer Inner Table</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2 mb-3">
+                                                                        <table class="table table-hover" id="customerInnerTable">
+                                                                            <thead class="table-light">
+                                                                            <tr>
+                                                                                <th scope="col">#</th>
+                                                                                <th scope="col">Item Name</th>
+                                                                                <th scope="col">Item Quantity</th>
+                                                                                <th scope="col">Session</th>
+                                                                                <th scope="col">Modify</th>
+
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody id="tableInnerCustomerBody" style="background-color: white">
+
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                            </div>
+
+                                        </div>
+<!--                                        Buttons-->
+                                        <div class="row mt-2">
+                                            <div class="text-center" id="buttonContainer2">
+
+                                                <button type="submit" class="btn btn-danger me-2" id="buttonSubmit2"
+                                                        style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.901);" onclick="buttonCustomerSubmit2();"><i
+                                                        class="fa-solid fa-plus"></i>Register</button>
+
+                                            </div>
+
+                                        </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Link Js-->
+<script src="/script/commonFunctions.js"></script>
+<script src="/script/commonValidationFunctions.js"></script>
+<script src="/uicontroller/customeronlinereg.js"></script>
+
+</body>
+
+</html>
